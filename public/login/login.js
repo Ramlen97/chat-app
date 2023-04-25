@@ -18,8 +18,8 @@ async function userSignup(e) {
             phone: e.target.phone.value,
             password: e.target.password.value
         }
-        const response = await axios.post('user/signup', signupDetails);
-        if(response.status==="201"){
+        const response = await axios.post('/user/signup', signupDetails);
+        if(response.status===201){
             alert("Successfully signed up");
             localStorage.setItem('token', response.token);
         }
@@ -30,14 +30,16 @@ async function userSignup(e) {
 }
 
 async function userLogin(e){
+    e.preventDefault();
     try {
         const loginDetails = {
             email: e.target.email.value,
             password: e.target.password.value
         }
-        const response = await axios.post('user/login', loginDetails);
-        if(response.status==="200"){
+        const response = await axios.post('/user/login', loginDetails);
+        if(response.status===200){
             alert("Successfully logged in");
+            localStorage.setItem('token', response.token);
         }
     } 
     catch (error) {

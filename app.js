@@ -16,7 +16,7 @@ app.use('/user', userRoutes);
 app.use((req,res)=>{
     console.log('url ==>',req.url);
     if (req.url==="/"){
-        return res.redirect('login/signup.html');
+        return res.redirect('login/login.html');
     }
     res.sendFile(path.join(__dirname,`public/${req.url}`));
 })
