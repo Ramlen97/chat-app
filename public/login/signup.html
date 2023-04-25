@@ -14,8 +14,8 @@
         <div class="text-box">
             <p class="form-text">Sign Up</p>
         </div>
-        <p id="err">Something went wrong.Try again</p>
-        <form>
+        <p id="err"></p>
+        <form onsubmit="userSignup(event)">
             <input type="text" name="name" placeholder="Name" required>
             <input type="email" name="email" placeholder="Email" required>
             <input type="tel" name="phone" placeholder="Mobile Number" required>
