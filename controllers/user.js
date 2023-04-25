@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const UserServices = require('../services/userservices');
 const JwtServices=require('../services/jwtservices');
+const Sequelize=require('sequelize');
 
 const postUserSignup = async (req, res) => {
     try {
@@ -8,7 +9,7 @@ const postUserSignup = async (req, res) => {
         if (!name || !email || !phone || !password) {
             return res.status(400).json({ message: 'Something is missing' });
         }
-        const user = await UserServices.findOne({ where: { email } });
+        const user = await UserServices.findOne({ where:{ [Sequelize.Op.or]:[{ email },{phone} ]}});
         if(user){
             return res.status(409).json({message:'User already exists.Please Login'})
         }

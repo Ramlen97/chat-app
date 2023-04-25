@@ -18,11 +18,30 @@ async function userSignup(e) {
             phone: e.target.phone.value,
             password: e.target.password.value
         }
-        const response = await axios.post('http://localhost:2000/user/signup', signupDetails);
-        alert("Successfuly signed up");
-        localStorage.setItem('token', response.token);
+        const response = await axios.post('user/signup', signupDetails);
+        if(response.status==="201"){
+            alert("Successfully signed up");
+            localStorage.setItem('token', response.token);
+        }
     }
     catch (error) {
         showErrorMessage(error);
     }
+}
+
+async function userLogin(e){
+    try {
+        const loginDetails = {
+            email: e.target.email.value,
+            password: e.target.password.value
+        }
+        const response = await axios.post('user/login', loginDetails);
+        if(response.status==="200"){
+            alert("Successfully logged in");
+        }
+    } 
+    catch (error) {
+        showErrorMessage(error);
+    }
+    
 }

@@ -6,7 +6,7 @@
 
 .form-box{
     width: 380px;
-    height: 400px;
+    height: 420px;
     position: relative;
     margin: 5% auto;
     padding: 5px;
@@ -65,7 +65,7 @@ input{
     border-radius: 30px;
     margin:auto;
     margin-top:25px;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .switch-link{
