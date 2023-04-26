@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: aliceblue;
+}
+
+.header {
+    width:100%;
+    text-align: center;
+    padding: 5px;
+    position: fixed;
+}
+
+.message-box{
+    width:100%;
+    overflow-y: scroll;
+    position: fixed;
+    top:40px;
+    bottom:40px;
+    margin:0 auto;
+    display:flex;
+    justify-content: center;
+}
+
+li {
+    width: 440px;
+    word-wrap: break-word;
+    padding: 5px 10px;
+    text-align: left;
+    list-style: none;
+}
+
+li:nth-child(odd) {
+    background: rgb(198, 212, 236);
+}
+
+.send-line {
+    height: 40px;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    background:rebeccapurple;
+    bottom: 0;
+    justify-content: center;
+}
+
+.send-line input {
+    width: 400px;
+    height: 20px;
+    padding: 5px;
+    margin: 5px;
+    border: none;
+    outline: none;
+}
+
+.send-line button {
+    padding: 5px;
+    margin: 5px 0;
+    margin-right: 20px;;
+}
+

@@ -4,6 +4,10 @@
     font-family: sans-serif;
 }
 
+body{
+    background-color: aliceblue;
+}
+
 .form-box{
     width: 380px;
     height: 420px;
@@ -60,12 +64,14 @@ input{
     padding: 10px 30px;
     cursor: pointer;
     display:block;
-    background: rgb(146, 146, 243);
+    /* background: rgb(94 94 167); */
+    background-color: rebeccapurple;
     border:none;
     border-radius: 30px;
     margin:auto;
     margin-top:25px;
     font-size: 18px;
+    color:white;
 }
 
 .switch-link{
