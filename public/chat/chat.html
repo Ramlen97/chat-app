@@ -11,15 +11,16 @@
 
 <body>
     <h2 class="header">Chat App</h2>
-    <div class="message-box">
-        <ul>
+    <div class="chat-box" id="chatbox">
+        <ul id="message-list">
             <li>You joined</li>
-            <li>Friend joined</li>
         </ul>
     </div>
     <div class="send-line">
-        <input type="text">
-        <button>Send</button>
+        <form onsubmit="sendMessage(event)">
+            <input type="text" name="text">
+            <button type="submit">Send</button>
+        </form>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js"></script>

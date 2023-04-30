@@ -13,21 +13,29 @@ body {
     text-align: center;
     padding: 5px;
     position: fixed;
+    background:rebeccapurple;
+    color:aliceblue ;
 }
 
-.message-box{
+.chat-box{
     width:100%;
-    overflow-y: scroll;
     position: fixed;
     top:40px;
     bottom:40px;
-    margin:0 auto;
     display:flex;
     justify-content: center;
+    /* border-top:1px solid rgb(198, 212, 236); */
+    overflow:auto;
 }
 
+.chat-box::-webkit-scrollbar {
+    display: none;
+  }
+ul{
+    width: 420px;
+}
 li {
-    width: 440px;
+    max-width: 100%;
     word-wrap: break-word;
     padding: 5px 10px;
     text-align: left;
@@ -41,15 +49,19 @@ li:nth-child(odd) {
 .send-line {
     height: 40px;
     width: 100%;
-    display: flex;
     position: fixed;
     background:rebeccapurple;
     bottom: 0;
+}
+
+.send-line form{
+    width:100%;
+    display: flex;
     justify-content: center;
 }
 
 .send-line input {
-    width: 400px;
+    width: 360px;
     height: 20px;
     padding: 5px;
     margin: 5px;
@@ -60,6 +72,13 @@ li:nth-child(odd) {
 .send-line button {
     padding: 5px;
     margin: 5px 0;
-    margin-right: 20px;;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+#err{
+    font-family: inherit;
+    text-align: center;
+    color: red;
 }
 

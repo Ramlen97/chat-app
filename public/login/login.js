@@ -21,7 +21,8 @@ async function userSignup(e) {
         const response = await axios.post('/user/signup', signupDetails);
         if(response.status===201){
             alert("Successfully signed up");
-            localStorage.setItem('token', response.token);
+            localStorage.setItem('token', response.data.token);
+            window.location.href="/chat/chat.html"
         }
     }
     catch (error) {
@@ -39,7 +40,8 @@ async function userLogin(e){
         const response = await axios.post('/user/login', loginDetails);
         if(response.status===200){
             alert("Successfully logged in");
-            localStorage.setItem('token', response.token);
+            localStorage.setItem('token', response.data.token);
+            window.location.href="/chat/chat.html"
         }
     } 
     catch (error) {

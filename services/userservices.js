@@ -16,9 +16,14 @@ const create=(details)=>{
     return User.create(details);
 }
 
+const createMessage=(user,details)=>{
+    return user.createMessage(details);
+}
+
 module.exports={
     findByPk,
     findOne,
     findAll,
     create,
+    createMessage,
 }
