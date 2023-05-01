@@ -25,8 +25,8 @@ app.use((req,res)=>{
     res.sendFile(path.join(__dirname,`public/${req.url}`));
 })
 
-User.hasMany(Message);
-Message.belongsTo(User);
+User.hasMany(Message,{foreignKey:"username",sourceKey:"username"});
+Message.belongsTo(User,{foreignKey:"username",targetKey:"username"});
 
 sequelize
     .sync()

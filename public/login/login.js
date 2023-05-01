@@ -13,7 +13,7 @@ async function userSignup(e) {
     e.preventDefault();
     try {
         const signupDetails = {
-            name: e.target.name.value,
+            username: e.target.username.value,
             email: e.target.email.value,
             phone: e.target.phone.value,
             password: e.target.password.value

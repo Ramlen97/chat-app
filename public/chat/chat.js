@@ -11,11 +11,26 @@ function showErrorMessage(error) {
     document.addEventListener('click', () => document.getElementById('err').remove(), { once: true });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    scrollUpdate();
-    const token = localStorage.getItem('token');
-    if (!token) {
-        // window.location.href = "/login/login.html";
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            // window.location.href = "/login/login.html";
+        }
+        const response = await axios.get('/message', { headers: { "Authorization": token } });
+        console.log(response.data);
+        if (response.status === 200) {
+            const { username, messages } = response.data;
+            if (messages) {
+                for (msg of messages) {
+                    document.getElementById('message-list').innerHTML += msg.username===username? `<li>You : ${msg.text}</li>`: `<li>${msg.username} : ${msg.text}</li>`;
+                }
+            }
+        }
+        scrollUpdate();
+    }
+    catch (error) {
+        showErrorMessage(error);
     }
 });
 
@@ -27,13 +42,14 @@ async function sendMessage(e) {
             return
         }
         const token = localStorage.getItem('token');
-        const response = await axios.post('/message', {text}, { headers: { "Authorization": token } });
+        const response = await axios.post('/message', { text }, { headers: { "Authorization": token } });
         if (response.status === 201) {
+            console.log(response.data);
             document.getElementById('message-list').innerHTML += `<li>You : ${text}</li>`
             e.target.text.value = "";
         }
         scrollUpdate();
-  
+
     } catch (error) {
         showErrorMessage(error);
     }

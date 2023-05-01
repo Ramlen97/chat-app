@@ -1,8 +1,8 @@
-const Sequelize=require('sequelize');
-const sequelize=require('../util/database');
+const Sequelize = require('sequelize');
+const sequelize = require('../util/database');
 
-const Message=sequelize.define('message',{
-    text:Sequelize.STRING
+const Message = sequelize.define('message', {
+    text: Sequelize.STRING,
 })
 
-module.exports=Message;
+module.exports = Message;
