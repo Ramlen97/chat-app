@@ -4,6 +4,8 @@ const UserServices=require('../services/userservices');
 const postMessage = async (req, res) => {
     try {
         const{text}=req.body;
+        console.log(text);
+        console.log(req.user);
         const response=await UserServices.createMessage(req.user,{text});
         res.status(201).json(response);
     } 
@@ -15,8 +17,10 @@ const postMessage = async (req, res) => {
 
 const getMessage = async (req, res) => {
     try {
-        const response=await MessageServices.findAll();
-        res.status(200).json({username:req.user.username,messages:response});
+        const {lastMessage}=req.query;
+        offset=+lastMessage;
+        const response=await MessageServices.findAll({attributes:['id','username','text'],offset});
+        res.status(200).json(response);
     } 
     catch (error) {
         console.log(error);
