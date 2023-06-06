@@ -11,7 +11,6 @@ const postUserSignup = async (req, res) => {
         }
         const user = await UserServices.findOne({ where: { [Sequelize.Op.or]: [{ email }, { phone }, { username }] } });
         if (user) {
-            console.log(user);
             if (user.email === email) {
                 return res.status(409).json({ message: 'This email already exists.Please login' })
             }

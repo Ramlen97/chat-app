@@ -10,19 +10,83 @@
 </head>
 
 <body>
-    <h2 class="header">Chat App</h2>
-    <div class="chat-box" id="chatbox">
-        <ul id="message-list">
-        </ul>
+    <div class="leftside">
+        <div class="leftheader">
+            <h2 class="header" id="chatapp-user"></h2>
+            <div class="menu" id="left-menu">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+        <div class="chat-list">
+            <div class="dropdown-content" id="left-dropdown">
+                <li id="open-group-name">Create new group</li>
+            </div>
+            <ul id="chatList">
+            </ul>
+        </div>
     </div>
-    <div class="send-line">
-        <form onsubmit="sendMessage(event)">
-            <input type="text" name="text">
-            <button type="submit">Send</button>
-        </form>
+    <p id="current-chat-not-selected">Select a chat to start messaging</p>
+    <div class="rightside" style="display:none" id="active-rightside">
+        <div class="right-side-header">
+            <h3  class="header" id="current-chat">Prabhakar</h3>
+            <div class="menu" id="right-menu">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+        <div class="chat-box" id="chatbox">
+            <div class="dropdown-content" style="right:1%" id="right-dropdown">
+                <li id="open-view-members">View members</li>
+                <li id="open-add-member">Add member</li>
+            </div>
+            <ul id="message-list">
+            </ul>
+        </div>
+        <div class="send-line">
+            <form onsubmit="sendMessage(event)">
+                <input type="text" name="text" placeholder="Write a message..." autofocus>
+                <button type="submit">>></button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-box" id="modal-overlay">
+        <div id="modal-container">
+            <div id="new-group-form">
+                <form onsubmit="createNewGroup(event)">
+                    <label>Group name</label>
+                    <input type="text" name="groupname" id="new-group-name" autofocus required>
+                    <button type="submit">Create</button>
+                    <button id="close-form-btn">Close</button>
+                </form>
+            </div>
+            <div id="new-group-created" style="display: none;">
+                <p id="group-created-message"></p>
+                <button id="close-group-created-message">Close</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-box" id="modal-overlay-1">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div id="search-button-div">
+                    <p>Add Members</p>
+                    <input type="text" id="search-name">
+                    <button id="member-search-btn" >Search</button>
+                </div>
+                <div class="scrollable-content" id="member-search-div">
+                    <ul id="searched-member-list"></ul>
+                </div>
+                <button id="close-form-btn-1">Close</button>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.0/socket.io.min.js"></script>
     <script src="chat.js"></script>
 </body>
 

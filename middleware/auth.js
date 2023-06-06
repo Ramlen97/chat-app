@@ -2,7 +2,7 @@ const UserServices = require('../services/userservices');
 const JwtServices=require('../services/jwtservices');
 
 const authenticate = async (req, res, next) => {
-    try {
+    try {;
         const token = req.header('Authorization');
         // console.log(token);
         const userObj = JwtServices.verify(token);

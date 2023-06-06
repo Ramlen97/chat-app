@@ -1,0 +1,16 @@
+const Sequelize=require('sequelize');
+const sequelize=require('../util/database');
+
+const Usergroup=sequelize.define('usergroup',{
+    id:{
+        type:Sequelize.INTEGER,
+        autoIncrement:true,
+        allowNull:false,
+        primaryKey:true,
+    },
+    groupname:Sequelize.STRING,
+    isAdmin:Sequelize.BOOLEAN,
+    joinedMessageId:Sequelize.INTEGER,
+});
+
+module.exports=Usergroup;
