@@ -28,7 +28,7 @@ const postUserSignup = async (req, res) => {
                 throw new Error();
             }
             const user = await UserServices.create({ username, email, phone, password: hash });
-            res.status(201).json({ message: 'User created successfully', token: JwtServices.generateToken(user.id, user.username) });
+            res.status(201).json({ message: 'User created successfully',token: JwtServices.generateToken(user.id, user.username) });
         })
     } catch (error) {
         console.log(error);

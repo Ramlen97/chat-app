@@ -21,7 +21,8 @@
         </div>
         <div class="chat-list">
             <div class="dropdown-content" id="left-dropdown">
-                <li id="open-group-name">Create new group</li>
+                <li id="open-new-group-form">Create new group</li>
+                <li id="logout">Logout</li>
             </div>
             <ul id="chatList">
             </ul>
@@ -40,12 +41,14 @@
         <div class="chat-box" id="chatbox">
             <div class="dropdown-content" style="right:1%" id="right-dropdown">
                 <li id="open-view-members">View members</li>
-                <li id="open-add-member">Add member</li>
+                <li id="open-add-member" style="display: none;">Add member</li>
+                <li id="open-make-admin" style="display: none">Make Admin</li>
+                <li id="open-remove-member" style="display: none">Remove member</li>
             </div>
             <ul id="message-list">
             </ul>
         </div>
-        <div class="send-line">
+        <div class="send-line" id="send-message-form">
             <form onsubmit="sendMessage(event)">
                 <input type="text" name="text" placeholder="Write a message..." autofocus>
                 <button type="submit">>></button>

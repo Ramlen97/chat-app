@@ -7,7 +7,6 @@ const authenticate = async (req, res, next) => {
         // console.log(token);
         const userObj = JwtServices.verify(token);
         const user = await UserServices.findByPk(userObj.userId);
-        // console.log('User authenticated');
         req.user = user;
         next();
     } catch (error) {

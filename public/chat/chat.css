@@ -83,13 +83,14 @@ body {
     padding: 10px;
     position: fixed;
     display: inline-block;
-    background: aliceblue;
+    background:rebeccapurple;
     border-bottom: 1px solid rgb(241, 206, 206);
     border-right: 1px solid rgb(241, 206, 206);
 }
 
 .header {
     float: left;
+    color:#fff;
 }
 
 .menu {
@@ -112,7 +113,7 @@ body {
     height: 3px;
     width: 4px;
     margin-bottom: 2.5px;
-    background-color: black;
+    background-color:#fff;
     border-radius: 50%;
     display: inline-block;
 }
@@ -145,7 +146,7 @@ body {
     text-align: left;
     padding: 10px;
     position: fixed;
-    background: aliceblue;
+    background: rebeccapurple;
     border-bottom: 1px solid rgb(241, 206, 206);
 }
 
@@ -196,7 +197,7 @@ body {
     height: 50px;
     width: 60%;
     position: fixed;
-    background: aliceblue;
+    background: rebeccapurple;
     border-top: 1px solid rgb(241, 206, 206);
     bottom: 0;
 }
@@ -216,14 +217,14 @@ body {
 }
 
 .send-line button {
-    background: rebeccapurple;
+    background:#fff;
     padding: 10px;
     margin: 7px 0;
     margin-right: 5px;
     cursor: pointer;
     border: none;
     outline: none;
-    color: white;
+    color: rebeccapurple;
     font-weight: 100px;
     border-radius: 50%;
 }
@@ -333,3 +334,17 @@ body {
 .modal-body button:hover {
     background: #cfcaee;
 }
+
+#get-old-messages{
+    display: flex;
+    justify-content: center;
+}
+
+#get-old-messages button{
+    background: transparent;
+    color: #3a19f5;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+

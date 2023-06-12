@@ -9,4 +9,7 @@ router.post('/save',userAuthentication,messageControllers.postSaveMessage);
 
 router.get('/new',userAuthentication,messageControllers.getNewMessages);
 
+router.get('/old',userAuthentication,messageControllers.getOldMessages)
+
+
 module.exports=router;

@@ -49,3 +49,43 @@ async function userLogin(e){
     }
     
 }
+
+async function forgotPassword(e) {
+    e.preventDefault();
+    try {
+        const forgotEmail = {
+            email: e.target.email.value
+        }
+        const response = await axios.post('/password/forgotpassword', forgotEmail);
+        alert(response.data.message);
+        e.target.email.value = "";
+    } catch (error) {
+        showErrorMessage(error);
+    }
+}
+
+async function resetPassword(e) {
+    e.preventDefault();
+    try {
+        const newpassword = e.target.newpassword.value;
+        const passwordcheck = e.target.passwordcheck.value;
+        const id = getCookie('id');
+        if (newpassword !== passwordcheck) {
+            document.getElementById('err').textContent = "Passwords don't match! Please try again.";
+            document.addEventListener('click', () => document.getElementById('err').textContent = "", { once: true });
+            return
+        }
+        const response = await axios.post(`/password/updatepassword/${id}`, {newpassword});
+        alert("Password updated succesfully. Please login with the new password");
+        window.location.href = "login.html"
+    } 
+    catch (error) {
+        showErrorMessage(error);
+    }
+}
+
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts[1].split(';')[0];
+}

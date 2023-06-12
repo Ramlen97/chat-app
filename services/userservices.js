@@ -16,8 +16,16 @@ const create=(details)=>{
     return User.create(details);
 }
 
+const update=(user,details)=>{
+    return user.update(details);
+}
+
 const createMessage=(user,details)=>{
     return user.createMessage(details);
+}
+
+const createForgotpassword=(user,details)=>{
+    return user.createForgotpassword(details);
 }
 
 module.exports={
@@ -25,5 +33,7 @@ module.exports={
     findOne,
     findAll,
     create,
+    update,
     createMessage,
+    createForgotpassword
 }
